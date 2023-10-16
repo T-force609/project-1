@@ -1,0 +1,34 @@
+from tkinter import Tk , BOTH
+from tkinter.ttk import Frame , Label , Notebook 
+
+from tkinter.font import Font
+
+class Example(Frame ):
+    def __init__(self , parent ):
+        Frame.__init__(self , parent)
+        self.parent = parent
+        self.initUI ()
+
+    def initUI(self ):
+        self.parent.title("Fonts")
+        self.pack(fill=BOTH , expand=True)
+
+        txt = "Tkinter is a default Python GUI toolkit"
+
+        myfont = Font(family="Ubuntu Mono", size =16)
+        label1 = Label(self , text=txt , font=myfont)
+        label1.grid(row=0, column =0)
+        label2 = Label(self , text=txt , font="TkTextFont")
+        label2.grid(row=1, column =0)
+        label3 = Label(self , text=txt , font =('Times ', '18', 'italic '))
+        label3.grid(row=2, column =0)
+    
+
+def main ():
+    root = Tk()
+    ex = Example(root)
+    root.geometry("+300+300")
+    root.mainloop ()
+
+if __name__ == '__main__ ':
+    main ()
